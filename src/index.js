@@ -1,40 +1,23 @@
 import './sass/main.scss';
-import ApiService from './api-servise.js';
-import imgTpl from './templates/card-image.hbs';
+
+
+import ImageFinder from './js/image-finder.js';
+
+const imageFinder = new ImageFinder(12, '#gallery', '#load-more-button');
+
 const refs = {
   searchForm: document.querySelector('#search-form'),
-  imageGallerey: document.querySelector('.gallery'),
-  loadMoreBtn: document.querySelector('[data-action="load-more"]'),
 };
-const apiservice = new ApiService();
-// console.log(apiservice);
-
 refs.searchForm.addEventListener('submit', onSearch);
-refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
-  e.preventDefaut();
+  
+  e.preventDefault();
 
-  const search = e.currentTarget.elements.query.value;
-
-  if (search === '') {
-    return alert('Введите правильный запрос');
+  const query = e.currentTarget.elements.query.value;
+  if (!query.trim()) {
+    alert('Введите правильный запрос');
+    return;
   }
-  apiservice.resetPage();
-  apiservice.fetchImages(search).then(images => {
-    clearimageGallerey();
-    appendImagesMarkup(images);
-  });
-}
-
-function onLoadMore() {
-  apiservice.fetchImages().then(appendImagesMarkup);
-}
-
-function appendImagesMarkup(images) {
-  refs.imageGallerey.insertAdjacentElement('beforeend', imgTpl(images));
-}
-
-function clearImageGallerey() {
-  refs.imageGallerey.innerHTML = '';
+  imageFinder.findImages(query);
 }
