@@ -11,9 +11,7 @@ const refs = {
 refs.searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
-  
   e.preventDefault();
-
   const query = e.currentTarget.elements.query.value;
   if (!query.trim()) {
     alert('Введите правильный запрос');

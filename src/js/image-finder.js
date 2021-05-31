@@ -24,10 +24,10 @@ export default class ImageFinder {
 
   show(data, canLoadMore) {
     if(canLoadMore){
-      this.refs.loadMoreBtn.classList.add("is-hidden");
+      this.refs.loadMoreBtn.classList.remove("is-hidden");
     }
     else{
-      this.refs.loadMoreBtn.classList.remove("is-hidden");
+      this.refs.loadMoreBtn.classList.add("is-hidden");
     }
 
     const html =  templatePrint(data);
