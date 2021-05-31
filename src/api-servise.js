@@ -1,8 +1,9 @@
 const API_KEY = '21833182-c50b5ade5b44b638c37fcd74e';
-const BASE_URL = 'https://pixabay.com/api/?image_type=photo&orientation=horizontal';
+const BASE_URL = 'https://pixabay.com/api';
 const options = {
   headers: {
     Authorization: API_KEY,
+    mode: 'cors',
   },
 };
 
@@ -12,10 +13,18 @@ export default class ApiService {
     this.page = 1;
   }
 
-  fetchImages() {
-    const url = `${BASE_URL}/?image_type=photo&orientation=horizontal
-      &q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
-
+  fetchImages(search) {
+    // console.log(this);
+    const parameters = [
+      'image_type=photo',
+      'orientation=horizontal',
+      'per_page=12',
+      `key=${API_KEY}`,
+      `page=${this.page}`,
+      `q=${search}`,
+    ];
+    const url = `${BASE_URL}/?${parameters.join('&')}`;
+    alert(url);
     return fetch(url, options)
       .then(response => response.json())
       .then(({ images }) => {
