@@ -10,7 +10,6 @@ export default class PixabayClient {
     const url = this.constructUrl();
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
     this._canLoadMore =  data.totalHits - (this.perPage * (this.page-1)+data.hits.length) > 0;
     return data.hits;
   }

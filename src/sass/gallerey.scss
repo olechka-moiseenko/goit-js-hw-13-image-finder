@@ -1,0 +1,36 @@
+.gallery {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container {
+    background: linear-gradient(to left, #0c54d1, #031435);
+    color: white;
+}
+
+.is-hidden {
+    display:none;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.search-input {
+    margin-right: 10px;
+    padding-bottom: 2px;
+    border-top: 2px;
+    font-size: 25px;
+    border: 2px solid black;
+    // border-radius: 5px;
+}
+
