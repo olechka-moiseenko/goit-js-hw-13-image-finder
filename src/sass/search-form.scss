@@ -8,12 +8,14 @@
     padding-bottom: 2px;
     border-top: 2px;
     font-size: 20px;
-    border: 2px solid black;
+    border:  $border;
+    border-radius: $border-radius;
   }
   &-button {
     font-size: 20px;
     background-color: white;
-    border: 2px solid black;
+    border: $border;
+    border-radius: $border-radius;
     cursor: pointer;
   }
 }

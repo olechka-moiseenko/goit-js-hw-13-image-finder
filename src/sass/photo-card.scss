@@ -1,6 +1,13 @@
 .photo-card {
   margin: 0 30px 20px 0;
   background-color: white;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  & > img{
+    border-radius: $border-radius $border-radius 0 0;
+  }
 
   &:hover {
     cursor: pointer;

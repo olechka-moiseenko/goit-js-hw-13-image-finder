@@ -1,6 +1,16 @@
 .stats {
+  margin-top: auto;
   display: flex;
   justify-content: center;
   padding: 8px;
   font-size: 11px;
+  border-radius: 0 0 $border-radius $border-radius;
+
+  &-item {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    color: #031435;
+    margin-right: 10px;
+  }
 }
