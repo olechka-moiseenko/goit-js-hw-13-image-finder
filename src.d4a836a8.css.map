@@ -1,1 +1,0 @@
-{"version":3,"sources":["sass/is-hidden.scss"],"names":[],"mappings":"AAAA,WACE,SAAA,CACA,iBAAA,CACA","file":"src.d4a836a8.css","sourceRoot":"../src","sourcesContent":[".is-hidden {\n  opacity: 0;\n  visibility: hidden;\n  pointer-events: none;\n}\n"]}
