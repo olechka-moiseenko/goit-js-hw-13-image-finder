@@ -21,10 +21,7 @@ export default class ImageFinder {
 
   async loadMore() {
     this.show(await this.pixabayClient.getNextPage(), this.pixabayClient.canLoadMore());
-    this.refs.result.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-    });
+    setTimeout(this.scrollToEnd.bind(this), 1000);
   }
 
   show(data, canLoadMore) {
@@ -37,13 +34,21 @@ export default class ImageFinder {
     const html = templatePrint(data);
     this.refs.result.insertAdjacentHTML('beforeend', html);
   }
-  showModal(imgUrl){
+  showModal(imgUrl) {
     const changeModalImage = `<img src=${imgUrl} alt="icon"/>`;
     const instance = basicLightbox.create(changeModalImage);
     instance.show();
   }
 
-  onCardClick(e){
+  scrollToEnd() {
+    // this.refs.result.scrollIntoView({
+    //   behavior: 'smooth',
+    //   block: 'end',
+    // });
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
+  onCardClick(e) {
     e.preventDefault();
     if (e.target.nodeName !== 'IMG') {
       return;
