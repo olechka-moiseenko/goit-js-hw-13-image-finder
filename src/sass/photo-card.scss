@@ -1,0 +1,9 @@
+.photo-card {
+  margin: 0 30px 20px 0;
+  background-color: white;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.3) 0 0 10px 5px;
+  }
+}
