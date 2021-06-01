@@ -13,4 +13,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"./apiService.js":"eQwa","../templates/card-image.hbs":"AXhu"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=r(require("./js/image-finder.js"));function r(e){return e&&e.__esModule?e:{default:e}}const t=new e.default(12,"#gallery","#load-more-button"),s={searchForm:document.querySelector("#search-form")};function n(e){e.preventDefault();const r=e.currentTarget.elements.query.value;r.trim()?t.findImages(r):alert("Введите правильный запрос")}s.searchForm.addEventListener("submit",n);
 },{"./sass/main.scss":"clu1","./js/image-finder.js":"Mmbx"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-13-image-finder/src.ca3397d5.js.map
+//# sourceMappingURL=/goit-js-hw-13-image-finder/src.39a82b22.js.map
