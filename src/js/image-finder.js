@@ -1,5 +1,7 @@
 import PixabayClient from './apiService.js';
 import templatePrint from '../templates/card-image.hbs';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 export default class ImageFinder {
   constructor(resultsPerPage, resultSelector, loadMoreBtnSelector) {
@@ -8,6 +10,7 @@ export default class ImageFinder {
       result: document.querySelector(resultSelector),
       loadMoreBtn: document.querySelector(loadMoreBtnSelector),
     };
+    this.refs.result.addEventListener('click', this.onCardClick.bind(this));
     this.refs.loadMoreBtn.addEventListener('click', this.loadMore.bind(this));
   }
 
@@ -33,6 +36,19 @@ export default class ImageFinder {
 
     const html = templatePrint(data);
     this.refs.result.insertAdjacentHTML('beforeend', html);
+  }
+  showModal(imgUrl){
+    const changeModalImage = `<img src=${imgUrl} alt="icon"/>`;
+    const instance = basicLightbox.create(changeModalImage);
+    instance.show();
+  }
+
+  onCardClick(e){
+    e.preventDefault();
+    if (e.target.nodeName !== 'IMG') {
+      return;
+    }
+    this.showModal(e.target.dataset.source);
   }
 
   clear() {
