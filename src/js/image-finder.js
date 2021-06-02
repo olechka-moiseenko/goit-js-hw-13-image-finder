@@ -24,6 +24,13 @@ export default class ImageFinder {
     setTimeout(this.scrollToEnd.bind(this), 1000);
   }
 
+  scrollToEnd() {
+    document.body.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+    });
+  }
+
   show(data, canLoadMore) {
     if (canLoadMore) {
       this.refs.loadMoreBtn.classList.remove('is-hidden');
@@ -38,14 +45,6 @@ export default class ImageFinder {
     const changeModalImage = `<img src=${imgUrl} alt="icon"/>`;
     const instance = basicLightbox.create(changeModalImage);
     instance.show();
-  }
-
-  scrollToEnd() {
-    // this.refs.result.scrollIntoView({
-    //   behavior: 'smooth',
-    //   block: 'end',
-    // });
-    window.scrollTo(0, document.body.scrollHeight);
   }
 
   onCardClick(e) {
